@@ -191,9 +191,11 @@ def anchorUpdateX(signal, kernel, signal_deconv=np.float32(0), kerneltype = 'B',
                 break
 
         if verbose==True and (i % 100)==0 and measure==False:
+            pass
             print('Iteration ' + str(i))
         elif verbose==True and (i % 100)==0 and measure==True:
-            print('Iteration ' + str(i) + ' - noise level: ' + str(error[i]))
+            pass
+            #print('--- Signal to noise ratio: ' + str(np.around(error[i], 3)) + ' dB')
 
         relative_blur = signal / relative_blur
 
@@ -216,9 +218,9 @@ def anchorUpdateX(signal, kernel, signal_deconv=np.float32(0), kerneltype = 'B',
         signal_deconv[signal_deconv > +1] = +1
         signal_deconv[signal_deconv < -1] = -1
 
-    print("\n\n Algorithm finished. Performance:")
-    print("--- %s seconds ----" % (time.time() - start_time))
-    print("--- %s sec/step ---" % ((time.time() - start_time)/iterations))
+    # print("\n Performance:")
+    # print("--- %s s" % (time.time() - start_time))
+    # print("--- %s s/step" % ((time.time() - start_time)/iterations))
     return signal_deconv, error #,kernel_update
     # return kernel_mirror, error #
 

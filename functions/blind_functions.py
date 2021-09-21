@@ -20,6 +20,7 @@ if cupy_enabled:
 ######### ----------------------------- #########
 
 import numpy                  as np
+import time
 import functions.pyphret_functions as pf
 
 #%%
@@ -85,7 +86,9 @@ def blindAU(signal, o_prior, h_prior, H_prior=np.float32(0),
         h = np.zeros([int(iterations_tot/step_image), signal.shape[0], signal.shape[1]])
     
     for i in np.arange(iterations_tot):
-        print("--------------------------------------- Iteration " + str(i))
+        start_time = time.time()        
+        print("\n-----------------------------------------------------")
+        print("Blind iteration " + str(i) + " of " + str(iterations_tot))
         if cupy_enabled:
             
             # deconvolution of the object
@@ -145,7 +148,13 @@ def blindAU(signal, o_prior, h_prior, H_prior=np.float32(0),
             if (i+1)%step_image == 0 and volume == False:
                 h[int(i/step_image),:,:] = h_prior
             error_h = np.append(error_h, error_h_store)
-            
+        
+        print("Performance:")
+        print("--- Sample SNR:                   " + str(np.around(error_o[-1], 3)) + " dB")  
+        print("--- PSF SNR:                      " + str(np.around(error_h[-1], 3)) + " dB")  
+        print("--- Execution time:               %s s" % np.around((time.time() - start_time),3))
+        print("--- Execution time per iteration: %s s/step" % np.around(((time.time() - start_time)/(iterations_o + iterations_h)),3)) 
+        
     if volume == True:
         o = o_prior
         h = h_prior
