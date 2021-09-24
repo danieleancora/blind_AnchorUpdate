@@ -57,6 +57,8 @@ o,h,error_o,error_h = bf.blindAU(xcorr_mean, o_prior, h_prior, H_prior,
                                  step_image, kerneltype)
     
 # %% Plots
+crop = 80
+
 
 # Figure 2
 plt.figure()
@@ -72,9 +74,9 @@ plt.figure()
 plt.subplot(231), plt.imshow(image),                plt.title("Original synthetic sample")
 plt.subplot(232), plt.imshow(measure.mean(axis=0)), plt.title("Synthetic measurement")
 plt.subplot(233), plt.imshow(o[-1,:,:]),            plt.title("Reconstruction")
-plt.subplot(234), plt.imshow(psf_rot.mean(axis=0)), plt.title("Blurring kernel")
-plt.subplot(235), plt.imshow(h_prior),              plt.title("Kernel initial guess")
-plt.subplot(236), plt.imshow(h[-1,:,:]),            plt.title("Reconstruction")
+plt.subplot(234), plt.imshow(psf_rot.mean(axis=0)[crop:-crop,crop:-crop]), plt.title("Blurring kernel")
+plt.subplot(235), plt.imshow(h_prior[crop:-crop,crop:-crop]),              plt.title("Kernel initial guess")
+plt.subplot(236), plt.imshow(h[-1,crop:-crop,crop:-crop]),            plt.title("Reconstruction")
 plt.suptitle('Figure 3 - Simulated blind AU deconvolved deautocorrelation')
 plt.tight_layout()
 
