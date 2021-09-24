@@ -8,3 +8,6 @@ https://github.com/ElenaCorbetta
 
 Preprint version on bioarxiv:  
 Published paper: -
+
+
+The project has received fundings from H2020 Marie Skłodowska-Curie Actions (HI-PHRET project, 799230).
