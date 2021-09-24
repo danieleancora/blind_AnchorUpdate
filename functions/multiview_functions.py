@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Sep 16 09:26:55 2021
-
-@author: Elena Corbetta
+@author: Elena Corbetta, Daniele Ancora
 
 Functions to build multi-view measurements.
 """

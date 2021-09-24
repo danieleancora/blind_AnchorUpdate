@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Sep 16 09:30:52 2021
-
-@author: Elena Corbetta
+@author: Elena Corbetta, Daniele Ancora
 
 These functions are taken from PYPHRET package from the link:
 https://github.com/danieleancora/pyphret

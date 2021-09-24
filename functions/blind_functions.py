@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Sep 16 09:43:35 2021
-
-@author: Elena Corbetta
+@author: Elena Corbetta, Daniele Ancora
 
 Function to execute blind Anchor-Update algorithm.
 It is a generalised function, working with:
